@@ -3,11 +3,18 @@ Proposal
 
 Idea 1 (Stay Indoors)
 
+For this idea, we want to make a web application that will give a stay at home user suggestions to books, music, movies,
+food delivery services, and other home activities that will be tailored to their personal preferances.  It will also 
+encorporate data from other users, and utilize that for user suggestions.  
+The user will have a personal profile that is customized with their interests and other various preferences.  The app will utilize a 
+Mongo Database and use public APIs from Netflix, Google Books, Spotify and Grubhub.  It will use authentication from Facebook,
+Google, and auth2.0  
 
 Idea 2 (Local Events in your city)
-This idea is targetted towards college students and similar age groups with a goal of promoting local events as well as larger functions. The user will be able to specify their interests, cost range, and distance, and the app will give them event ideas
+This idea is targetted towards college students and similar age groups with a goal of promoting local events as well as larger functions. 
+The user will be able to specify their interests, cost range, and distance, and the app will give them event ideas
 based on their profile. We hope to have options for community events (i.e. events that other users host/promote such as gatherings,
 parties, outings, fundraisers, etc.) as well as larger events (i.e. nightclub promotions, concerts, museums, etc.) that the user can 
-choose from. We intend to use APIs such as eventful to gather data about surrounding events.
-
+choose from. We intend to use APIs such as eventful and ticketmaster to gather data about surrounding events.  The app will utilize a 
+Mongo Database and uses authentication from Facebook, Google, and auth2.0  
 
