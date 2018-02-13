@@ -4,7 +4,10 @@ Proposal
 Idea 1 (Stay Indoors)
 
 
-
 Idea 2 (Local Events in your city)
+This idea is targetted towards college students and similar age groups with a goal of promoting local events as well as larger functions. The user will be able to specify their interests, cost range, and distance, and the app will give them event ideas
+based on their profile. We hope to have options for community events (i.e. events that other users host/promote such as gatherings,
+parties, outings, fundraisers, etc.) as well as larger events (i.e. nightclub promotions, concerts, museums, etc.) that the user can 
+choose from. We intend to use APIs such as eventful to gather data about surrounding events.
 
 
