@@ -9,6 +9,11 @@ encorporate data from other users, and utilize that for user suggestions.
 The user will have a personal profile that is customized with their interests and other various preferences.  The app will utilize a 
 Mongo Database and use public APIs from Netflix, Google Books, Spotify and Grubhub.  It will use authentication from Facebook,
 Google, and auth2.0  
+  -Notes
+    * For Delivery: grubhub api does not exist, yelp api only shows what restaurants can do delivery, 
+      postmates has an api that allows you to make a delivery, but the limitation is that it can only deliver 
+      what postmates can deliver. A separate instance of a selenium script on aws lambda could do the automated 
+      ordering of food with the details of food provided via our web app, but is not really scalable. 
 
 Idea 2 (Local Events in your city)
 This idea is targetted towards college students and similar age groups with a goal of promoting local events as well as larger functions. 
