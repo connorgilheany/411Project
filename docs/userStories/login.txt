@@ -1,0 +1,4 @@
+As a user, I want to be able to log in with my social media account so that I can access activity suggestions tailored to my tastes
+  details:
+  a. Only facebook or Google account allowed
+  b. User does not need to log in every time they start the app. Authentication info is stored.
