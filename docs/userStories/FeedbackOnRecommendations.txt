@@ -1,5 +1,3 @@
 As a user, I want to be able to give feedback on my recommendations, and like or dislike what is chosen for me.  
 
-This will allow me to share my thoughts on movies, books, and other content that other users are watching.
-Other usesrs will be able to see comments and share their thoughts as well.
-
+This will allow me to give my opinion on whether that was a good recommendation, and have that stored in data for further recomendations
