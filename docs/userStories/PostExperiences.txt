@@ -1,0 +1,4 @@
+As a user, I want to be able to post my experiences within the app.
+
+details:
+  a) Comments, and personal posts
