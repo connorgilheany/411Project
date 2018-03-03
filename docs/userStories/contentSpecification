@@ -1,0 +1,5 @@
+As a user, I want to be able to specify the kind of content I want to consume and begin consuming (after logging in)
+
+details:
+  a. This specification will be adjusted upon the first time logging in and stored as data.
+  b. It will be able to be edited in the user profile.
