@@ -1,0 +1,1 @@
+As a user, I want to be able to give feedback on my recommendations, and like or dislike what is chosen for me.  
