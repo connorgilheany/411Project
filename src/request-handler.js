@@ -1,0 +1,9 @@
+class RequestHandler { 
+    contructor() {
+
+    }
+
+    index() {
+        
+    }
+}
