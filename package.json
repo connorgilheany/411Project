@@ -1,0 +1,22 @@
+{
+  "name": "411-project",
+  "version": "1.0.0",
+  "description": "A website for those who want to pass time at home",
+  "main": "src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connorgilheany/411Project.git"
+  },
+  "author": "Connor Gilheany, Shirene Cao, Tony Kim, Lawrence Luo, Harrison Klein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connorgilheany/411Project/issues"
+  },
+  "homepage": "https://github.com/connorgilheany/411Project#readme"
+}
