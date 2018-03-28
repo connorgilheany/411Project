@@ -2,8 +2,9 @@ extends layout
 
 block content
   h1= title
+  p Book stuff #{books}
   p Welcome to #{title}
-  form(name="add-estimation", method="post")
+  form(name="search-books", method="post")
         div.input
             span.label Book Title 
             input(type="text", name="title")
