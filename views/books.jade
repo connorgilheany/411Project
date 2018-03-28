@@ -2,15 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Book stuff #{books}
-  p Welcome to #{title}
-  form(name="search-books", method="post")
+  p Search for books
+  form(name="add-estimation", method="post")
         div.input
             span.label Book Title 
             input(type="text", name="title")
         div.actions
             input(type="submit", value="Search")
-  p I want to...
-  a(href=booksURL) Read a Book
-  br
-  a(href=watchURL) Watch Something
