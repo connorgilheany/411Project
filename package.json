@@ -30,6 +30,7 @@
     "mongodb": "~3.0.1",
     "monk": "~6.0.5",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "google-books-search": "~0.3.0"
   }
 }
