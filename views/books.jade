@@ -3,9 +3,13 @@ extends layout
 block content
   h1= title
   p Search for books
-  form(name="add-estimation", method="post")
+  form(action = "/books", method="POST", name = "search-books")
         div.input
-            span.label Book Title 
-            input(type="text", name="title")
+            span.label Book Title
+            input(type="text", name="query")
         div.actions
             input(type="submit", value="Search")
+
+  p #{resultsLength}
+  for item in results
+    li=item
