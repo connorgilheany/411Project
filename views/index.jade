@@ -3,19 +3,6 @@ extends layout
 block content
   h1= title
 
-  p Welcome to #{title}
-  form(action = "/search", method="POST", name = "search-books")
-        div.input
-            span.label Book Title
-            input(type="text", name="query")
-        div.actions
-            input(type="submit", value="Search")
-
-  p #{resultsLength}
-  for item in results
-    li=item
-
-
   p I want to...
   a(href=booksURL) Read a Book
   br
