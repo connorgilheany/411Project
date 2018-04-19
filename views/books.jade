@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p Search for books
-  form(action = "/books", method="POST", name = "search-books")
+  form(action = "/books", method="POST", name ="search-books")
         div.input
             span.label Book Title
             input(type="text", name="query")
