@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www | npm run start-db",
-    "start-db": "mongod --dbpath ./db/"
+    "start-db": "mongod"
   },
   "repository": {
     "type": "git",
