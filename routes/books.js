@@ -15,8 +15,7 @@ let searchBooks = (queryString) => {
 
 let parser = (resultJSON) => {
   let bookTitles = [];
-  console.log("Parsing "+resultJSON);
-  resultJSON.items.slice(0,10).forEach(item => {
+  resultJSON.items.slice(0, 10).forEach(item => {
     bookTitles.push(item.volumeInfo.title);
   })
   return bookTitles;

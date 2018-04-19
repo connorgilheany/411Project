@@ -1,5 +1,6 @@
 var request = require('request');
 
+//Returns a promise with the result of the cache lookup / network call
 let call = (url, parser) => {
   return new Promise((resolve, reject) => {
     //Check if it's in the cache (URL key), if so resolve with the data from cache
