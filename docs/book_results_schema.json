@@ -1,0 +1,22 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"title": "Query results",
+	"type": "object",
+	"properties": {
+		"url": {
+			"description": "URL of API request",
+			"type": "string",
+			"format": "uri"
+		},
+		"results": {
+			"description": "Google API results",
+			"type": "array",
+			"maxItems": 10,
+			"items": {
+				"title": "book title",
+				"type": "string"
+			},
+		}
+	},
+	"required": ["url", "results"]
+}
