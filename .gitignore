@@ -1,6 +1,3 @@
+config.js
 
-db/journal/
-
-*.wt
-
-db/
+node_modules/
