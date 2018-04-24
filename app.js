@@ -8,7 +8,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
-var api = require('./routes/api');
 
 var app = express();
 
