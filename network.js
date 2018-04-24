@@ -1,14 +1,6 @@
 var request = require('request');
-// const connection =require('./db');
 
 var firebase = require('firebase');
-// var admin = require('firebase-admin');
-// var serviceAccount = require('path/to/serviceAccountKey.json');
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: firebaseConfig.databaseURL
-// });
 const firebaseConfig = require('./config');
 
 var defaultApp = firebase.initializeApp(firebaseConfig);
@@ -55,40 +47,6 @@ let call = (url, parser, queryString) => {
           }
         })
       });
-    // ref.on("value", function(snapshot) {
-    //   var storedQuery = snapshot.child("insertUID/").val();
-    //   if (storedQuery != null) {
-    //     for 
-    //   }
-
-    //    console.log(snapshot.val());
-    // }, function (error) {
-    //    console.log("Error: " + error.code);
-    // });
-
-    // ref.off("value");
-
-    // if query in database
-    // return query content in db
-    // else
-    // hit api and store the content
-    //Else:
-    //
-
-    
-    // request(url, (error, response, body) => {
-    //   if (!error && response.statusCode == 200) {
-    //     let jsonBody = JSON.parse(body);
-    //     let parsed = parser(jsonBody);
-    //     //Add it to the cache with the URL as the key
-    //     resolve(parsed);
-    //     writeBookData(url, parsed, queryString);
-
-
-    //   } else {
-    //     reject(Error("Error processing request to URL: "+parser));
-    //   }
-    // });
 
 
   });
