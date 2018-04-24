@@ -1,0 +1,2 @@
+We intend to store user data in the form of name, age with additional keys like genre preferences, books read, films watched, etc. It is still being discussed with the group so we have not formally drafted what the document schema should be.
+-Films schema will be the same as books 
