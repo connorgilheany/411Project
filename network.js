@@ -3,10 +3,10 @@ var request = require('request');
 var firebase = require('firebase');
 const firebaseConfig = require('./config');
 
-var defaultApp = firebase.initializeApp(firebaseConfig);
-console.log(defaultApp.name);  // "[DEFAULT]"
+// var defaultApp = firebase.initializeApp(firebaseConfig);
+// console.log(defaultApp.name);  // "[DEFAULT]"
 
-var defaultDatabase = defaultApp.database();
+// var defaultDatabase = defaultApp.database();
 var user = firebase.auth().currentUser;
 
 
@@ -27,6 +27,9 @@ function writeBookData(url, parsedResult, queryString) {
 let call = (url, parser, queryString) => {
   return new Promise((resolve, reject) => {
     //Check if it's in the cache (URL key), if so resolve with the data from cache
+    
+    // onAuthStateChanged to get current user uid as getting the uid is an async task 
+    // that must be resolved before querying otherwise null pointer
     firebase.auth().onAuthStateChanged( user => {
     if (user) { 
       this.userId = user.uid;
@@ -35,9 +38,7 @@ let call = (url, parser, queryString) => {
         .then(function(snapshot) {
           snapshot.forEach(function(childSnapshot) {
             var key = childSnapshot.key;
-            console.log("this key" + key);
             if (key == queryString){
-              console.log("Got cache");
               resolve(childSnapshot.child("result").val());
             }
             else{
@@ -65,7 +66,5 @@ let call = (url, parser, queryString) => {
 }
 
 module.exports = {
-  call : call,
-  defaultApp : defaultApp,
-  defaultDatabase : defaultDatabase
+  call : call
 }

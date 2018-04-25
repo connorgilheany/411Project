@@ -5,8 +5,6 @@ var firebase = require('firebase');
 
 var firebaseConfig = require('../config');
 
-var firebaseRef = firebaseConfig.databaseURL;
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

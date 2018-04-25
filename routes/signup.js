@@ -5,8 +5,6 @@ var firebase = require('firebase');
 
 var firebaseConfig = require('../config');
 
-var firebaseRef = firebaseConfig.databaseURL;
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,7 +17,6 @@ router.post('/', function(req, res, next) {
 	var newEmail = req.body.email;
 	var newPass = req.body.password;
 	firebase.auth().createUserWithEmailAndPassword(newEmail, newPass).then(function(user) {
-		console.log(user.uid);
 		firebase.database().ref('cache/').child(user.uid).set({
 			"_email" : newEmail});
 		res.render('index', {
