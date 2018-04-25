@@ -12,11 +12,12 @@ var user = firebase.auth().currentUser;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { 
-    title: 'Couch Surf', 
+    title: 'WELCOME TO THE ANTI-OUTSIDE INSIDE APP', 
     booksURL: '/books',
     watchURL: '/watch',
     signupURL: '/signup', 
-    signinURL: '/signin'});
+    signinURL: '/signin',
+    signoutURL: '/signout'}); //a(href=signoutURL) Sign Out!
 });
 
 
