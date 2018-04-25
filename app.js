@@ -8,12 +8,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
+var signupRouter = require('./routes/signup');
+var signinRouter = require('./routes/signin');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,37 +27,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/watch', watchRouter);
+app.use('/signup', signupRouter);
+app.use('/signin', signinRouter);
 
 
-var userService = require('./user_service');
 
-//Create new user
-app.post('/user', function(req, res) {
-	var newUserEmail = req.headers['user-email'];
-	var newUserPass = req.headers['user-pass'];
-	userService.addUser(newUserEmail, newUserPass, 
-		function(error, uid) {
-			if (error) {
-				return res.status(500).send('Error when creating user');
-			} else {			
-				return res.status(201).send({uid : uid});
-		}
-	});
-});
-
-//Perform authentication
-app.post('/login', function(req, res){
-	var userEmail = req.headers['user-email'];
-	var userPassword = req.headers['user-pass'];
-	userService.authenticate(userEmail, userPassword,
-		function(error, authData) {
-			if (error) {
-				return res.status(401).send('Unauthorized');
-			} else {
-				return res.status(200).send(authData);
-		}
-	});
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
