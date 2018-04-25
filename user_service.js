@@ -1,30 +1,23 @@
 
-var Firebase = require('firebase');
+var firebase = require('firebase');
 
 var firebaseConfig = require('./config');
 
-var firebaseRef = "cs411-2b882.firebaseapp.com"
+var firebaseRef = firebaseConfig.databaseURL;
 
 function addUser(email, password, callback) {
-	firebaseRef.createUser({
-		email : email,
-		password : password
-	}, function(error, userData) {
-		callback(error, userData.uid);
+	console.log(email);
+	console.log(password);
+	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+	// Handle Errors here.
+	var errorCode = error.code;
+	var errorMessage = error.message;
+	console.log(errorCode);
+	// ...
 	});
 }
 
-
-function authenticate(email, password, callback) {
-	firebaseRef.authWithPassword({
-		email : email, 
-		password : password
-	}, function(error, authData) {
-		callback(error, authData);
-	});
-}
 
 module.exports = {
 	addUser : addUser,
-	authenticate : authenticate
 }
