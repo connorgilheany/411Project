@@ -21,9 +21,6 @@ router.post('/', function(req, res, next) {
 	console.log(newEmail);
 	console.log(newPass);
 	firebase.auth().createUserWithEmailAndPassword(newEmail, newPass).then(function(user) {
-		console.log(user.uid);
-		firebase.database().ref('cache/').child(user.uid).set({
-			"email" : newEmail});
 		res.render('index', {success: 'Signed up successfully!'});
 	}).catch(function(error) {
 		// Handle Errors here.

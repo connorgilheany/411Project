@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Couch Surf', 
     booksURL: '/books',
-    watchURL: '/watch', });
+    watchURL: '/watch',
+    signupURL: '/signup' });
 });
 
 

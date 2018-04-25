@@ -54,5 +54,6 @@ let call = (url, parser, queryString) => {
 
 module.exports = {
   call : call,
-  defaultApp : defaultApp
+  defaultApp : defaultApp,
+  defaultDatabase : defaultDatabase
 }
