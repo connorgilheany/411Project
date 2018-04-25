@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
     title: 'Couch Surf', 
     booksURL: '/books',
     watchURL: '/watch',
-    signupURL: '/signup' });
+    signupURL: '/signup', 
+    signinURL: '/signin'});
 });
 
 

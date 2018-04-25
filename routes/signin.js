@@ -10,42 +10,35 @@ var firebaseRef = firebaseConfig.databaseURL;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('signup');
+  res.render('signin');
 });
 
 
-//Create new user
-router.post('/', function(req, res, next) {
-	var newEmail = req.body.email;
-	var newPass = req.body.password;
-	console.log(newEmail);
-	console.log(newPass);
-	firebase.auth().createUserWithEmailAndPassword(newEmail, newPass).then(function(user) {
-		res.render('index', {success: 'Signed up successfully!'});
+// Perform authentication
+router.post('/', function(req, res){
+	var userEmail = req.body.email;
+	var userPass = req.body.password;
+	firebase.auth().signInWithEmailAndPassword(userEmail, userPass).then(function(user) {
+		// success log in
+		console.log(user.uid);
+		res.render('index', {
+			success: 'Signed in successfully!', 
+			user: user.email,
+			booksURL: '/books',
+		    watchURL: '/watch',
+		    signupURL: '/signup', 
+		    signinURL: '/signin'});
 	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
-		console.log(errorCode);
-		res.render('signup', {success: 'Failed to Sign Up!'});
+		res.render('signin', {success: 'Failed to Sign In!'});
+
+		// ...
 	});
-
 	
-});
 
-//Perform authentication
-// app.post('/login', function(req, res){
-// 	var userEmail = req.headers['user-email'];
-// 	var userPassword = req.headers['user-pass'];
-// 	userService.authenticate(userEmail, userPassword,
-// 		function(error, authData) {
-// 			if (error) {
-// 				return res.status(401).send('Unauthorized');
-// 			} else {
-// 				return res.status(200).send(authData);
-// 		}
-// 	});
-// });
+});
 
 
 

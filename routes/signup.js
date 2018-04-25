@@ -18,13 +18,15 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	var newEmail = req.body.email;
 	var newPass = req.body.password;
-	console.log(newEmail);
-	console.log(newPass);
 	firebase.auth().createUserWithEmailAndPassword(newEmail, newPass).then(function(user) {
 		console.log(user.uid);
 		firebase.database().ref('cache/').child(user.uid).set({
-			"email" : newEmail});
-		res.render('index', {success: 'Signed up successfully!'});
+			"_email" : newEmail});
+		res.render('index', {
+			success: 'Signed up successfully!', booksURL: '/books',
+		    watchURL: '/watch',
+		    signupURL: '/signup', 
+		    signinURL: '/signin'});
 	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
@@ -35,20 +37,6 @@ router.post('/', function(req, res, next) {
 
 	
 });
-
-//Perform authentication
-// app.post('/login', function(req, res){
-// 	var userEmail = req.headers['user-email'];
-// 	var userPassword = req.headers['user-pass'];
-// 	userService.authenticate(userEmail, userPassword,
-// 		function(error, authData) {
-// 			if (error) {
-// 				return res.status(401).send('Unauthorized');
-// 			} else {
-// 				return res.status(200).send(authData);
-// 		}
-// 	});
-// });
 
 
 

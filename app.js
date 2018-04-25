@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
 var signupRouter = require('./routes/signup');
+var signinRouter = require('./routes/signin');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/watch', watchRouter);
 app.use('/signup', signupRouter);
+app.use('/signin', signinRouter);
 
 
 
