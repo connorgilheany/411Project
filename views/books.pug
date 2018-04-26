@@ -11,5 +11,7 @@ block content
             input(type="submit", value="Search")
 
   p #{resultsLength}
+
+  ul
   for item in results
-    li=item
+    li: a(href=item.previewLink, target="_blank") #{item.title}
