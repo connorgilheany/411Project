@@ -1,15 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Search for books
-  form(action = "/books", method="POST", name ="search-books")
-        div.input
-            span.label Book Title
-            input(type="text", name="query")
-        div.actions
-            input(type="submit", value="Search")
+  #main-box
+    h1= title
+    p Search for books
+    #form
+      form(action = "/books", method="POST")
+            div.input
+                span.label Book Title
+                input(type="text", name="query")
+            div.actions
+                input(type="submit", value="Search")
 
-  p #{resultsLength}
-  for item in results
-    li=item
+    p #{resultsLength}
+    #resultList
+      for item in results
+        li=item

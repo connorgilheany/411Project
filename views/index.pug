@@ -1,17 +1,42 @@
-extends layout
+doctype html
+html
+  head
+    meta(name='google-signin-client_id', content='1086732750861-oqops55mn1sbtintk127igov3ootqe2i.apps.googleusercontent.com')
+    meta(name='google-signin-cookiepolicy', content='single_host_origin')
+    meta(name='google-signin-scope', content='profile email')
 
-block content
-  h1= title
-  h1= success
-  h1= user
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://apis.google.com/js/platform.js', async='', defer='')
+  body
+    block content
+      if showLogin
+        .logo
+          b E-Home
 
-  p I want to...
-  a(href=booksURL) Read a Book
-  br
-  a(href=watchURL) Watch Something
-  br
-  a(href=signupURL) Sign Up!
-  br
-  a(href=signinURL) Sign In!
-  br 
-  a(href=signoutURL) Sign Out!
+        #login-box
+          .left
+            h1 Sign up
+            form(method='POST' action='/signup')
+              input(type='text', name='email', placeholder='E-mail')
+              input(type='password', name='password', placeholder='Password')
+              input(type='password', name='password2', placeholder='Retype password')
+              input(type='submit', name='signup_submit', value='Sign me up')
+          .right
+            h1 Already have an account?
+            form(method='POST' action='/signin')
+              input(type='text', name='email', placeholder='E-mail')
+              input(type='password', name='password', placeholder='Password')
+              input(type='submit', name='signup_submit', value='Sign in')
+            .g-signin2(data-onsuccess='onSignIn')
+          .or OR
+      if currentUser
+        #main-box
+          h1= success
+          h3= user
+          p I want to...
+          a(href=booksURL) Read a Book
+          br
+          a(href=watchURL) Watch Something
+          br 
+          a(href=signoutURL) Sign Out!

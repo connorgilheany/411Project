@@ -1,7 +1,11 @@
 doctype html
 html
   head
+    meta(name='google-signin-client_id', content='YOUR_CLIENT_ID.apps.googleusercontent.com')
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://apis.google.com/js/platform.js', async='', defer='')
+
   body
     block content
+
