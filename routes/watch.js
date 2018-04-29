@@ -6,7 +6,6 @@ var router = express.Router();
 /* GET watch page. */
 router.get('/', function(req, res, next) {
     getTrendingVideos().then((videos) => {
-        console.log("Rendering");
         res.render('watch',
         {
             title: "COUCH SURF",
@@ -16,12 +15,10 @@ router.get('/', function(req, res, next) {
 });
 
 let getTrendingVideos = () => {
-    console.log("Getting videos");
-    return network.call("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&regionCode=US&maxResults=25&key=" + config.youtubeAPIKey, parser, "kddfd")//TODO remove query string
+    return network.call("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=25&key=" + config.youtubeAPIKey, parser, "videos", "trending")
 }
 
 let parser = (resultJSON) => {
-    console.log("Parsing videos");
     let videoKeys = [];
     resultJSON.items.forEach(video => {
         videoKeys.push(video);

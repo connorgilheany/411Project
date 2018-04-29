@@ -11,57 +11,54 @@ var user = firebase.auth().currentUser;
 
 
 
-function writeBookData(url, parsedResult, queryString) {
+function writeCacheData(url, parsedResult, cacheArea, queryString) {
+  console.log("Writing data to cache: "+cacheArea+queryString);
   firebase.auth().onAuthStateChanged( user => {
     if (user) { 
       this.userId = user.uid;
-      firebase.database().ref('cache/').child(user.uid).child(queryString).update({ //insert specific uid
-      "url": url,
-      "result": parsedResult
-    }); 
+      firebase.database().ref('cache/').child(user.uid).child(cacheArea+queryString).update({ //insert specific uid
+        "url": url,
+        "result": parsedResult
+      }); 
     }
   });
 }
 
 //Returns a promise with the result of the cache lookup / network call
-let call = (url, parser, queryString) => {
+let call = (url, parser, cacheArea, queryString) => {
   return new Promise((resolve, reject) => {
     //Check if it's in the cache (URL key), if so resolve with the data from cache
     
     // onAuthStateChanged to get current user uid as getting the uid is an async task 
     // that must be resolved before querying otherwise null pointer
     firebase.auth().onAuthStateChanged( user => {
-    if (user) { 
-      this.userId = user.uid;
-      var query = firebase.database().ref('cache/').child(user.uid);
-      query.once("value") 
+      if (user) { 
+        this.userId = user.uid;
+        var query = firebase.database().ref('cache/').child(user.uid);
+        query.once("value") 
         .then(function(snapshot) {
           snapshot.forEach(function(childSnapshot) {
             var key = childSnapshot.key;
-            if (key == queryString){
+            if (key == cacheArea+queryString){ 
+              console.log("Got data from cache: "+cacheArea+queryString)
               resolve(childSnapshot.child("result").val());
-            }
-            else{
+            } else {
               request(url, (error, response, body) => {
-              if (!error && response.statusCode == 200) {
-                let jsonBody = JSON.parse(body);
-                let parsed = parser(jsonBody);
-                //Add it to the cache with the URL as the key
-                resolve(parsed);
-                writeBookData(url, parsed, queryString);
-              } else {
-                reject(Error("Error processing request to URL: "+parser));
-              }
-            });
-
+                if (!error && response.statusCode == 200) {
+                  let jsonBody = JSON.parse(body);
+                  let parsed = parser(jsonBody);
+                  //Add it to the cache with the URL as the key
+                  resolve(parsed);
+                  writeCacheData(url, parsed, cacheArea, queryString);
+                } else {
+                  reject(Error("Error processing request to URL: "+parser));
+                }
+              });
             }
-          })
+          });
         });
-      
       }
     });
-
-
   });
 }
 

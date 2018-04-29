@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 // Returns promise with list of book titles if request is successful
 let searchBooks = (queryString) => {
-  return network.call('https://www.googleapis.com/books/v1/volumes?q=' + queryString, parser, queryString);
+  return network.call('https://www.googleapis.com/books/v1/volumes?q=' + queryString, parser, "books", queryString);
 }
 
 let parser = (resultJSON) => {
