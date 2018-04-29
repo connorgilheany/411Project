@@ -17,7 +17,7 @@ let parser = (resultJSON) => {
   let bookTitles = [];
   resultJSON.items.slice(0, 10).forEach(item => {
     bookTitles.push(item.volumeInfo.title);
-  })
+  });
   return bookTitles;
 }
 

@@ -1,6 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Watch this vine on repeat while we work on this
+  h1=title
+
+  p Current Trending Videos
+  for item in videoList
+    li=item.id
+
+
+  p Test
   iframe(width='560', height='315', src="https://www.youtube.com/embed/NsLKQTh-Bqo", frameborder="0", allowfullscreen='allowfullscreen')
