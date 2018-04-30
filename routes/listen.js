@@ -35,7 +35,7 @@ router.post('/', function (req, res) {
             spotRes.tracks.items.forEach(function(ea){
                 results.push({artist: ea.artists[0].name,
                     song: ea.name,
-                    preview: ea.external_urls.spotify,
+                    preview: 'https://open.spotify.com/embed?uri=spotify:track:' + ea.external_urls.spotify.substring(31),
                     album: ea.album.name});
             });
             //Render the homepage and return results to the view
