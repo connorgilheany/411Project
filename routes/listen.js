@@ -21,7 +21,7 @@ var results = [];
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index.hbs', {title: 'Spotify', results: results});
+    res.render('listen', {title: 'Spotify', results: results});
 });
 
 
@@ -35,56 +35,6 @@ router.post('/', function (req, res) {
     //Clear out old results
     results = [];
 
-    // Check firebase for query
-/**
-    // if query in firebase, pull out firebase data
-    return new Promise((resolve, reject) => {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.userID = user.uid;
-                var query = firebase.database().ref('cache/').child(user.uid).child('spotify/');
-                query.once("value").then(function (snapshot) {
-                    snapshot.forEach(function (childSnapshot) {
-                        var key = childSnapshot.key;
-                        if (key == query) {
-                            // resolve()
-                            resolve(childSnapshot.child("result").val());
-                            console.log("Its in the database");
-                        }
-                        else {
-                            console.log("Hitting Spotify api");
-                            spotify.search({type: type, query: query})
-                                .then(function (spotRes) {
-                                    //Store the artist, song, preview link, and album in the results array
-                                    spotRes.tracks.items.forEach(function (ea) {
-                                        results.push({
-                                            artist: ea.artists[0].name,
-                                            song: ea.name,
-                                            preview: 'https://open.spotify.com/embed?uri=spotify:track:' + ea.external_urls.spotify.substring(31),
-                                            album: ea.album.name
-                                        });
-                                    });
-                                    resolve(results);
-                                    console.log("Now inserting to firebase");
-                                    firebase.database().ref('cache/').child(user.uid).child('spotify/').child(query).update(ea);
-                                    //Render the homepage and return results to the view
-                                    res.render('index.hbs', {title: 'Spotify', results: results});
-                                })
-                                .catch(function (err) {
-                                    console.log(err);
-                                    reject(Error("Error!"));
-                                    throw err;
-                                });
-                        }
-                    })
-                })
-            }
-        });
-    });
-
-});
-    // else make wrapper request
-**/
     //Make a request to Spotify
     spotify.search({type: type, query: query})
         .then(function (spotRes) {
@@ -95,8 +45,12 @@ router.post('/', function (req, res) {
                     preview: 'https://open.spotify.com/embed?uri=spotify:track:' + ea.external_urls.spotify.substring(31),
                     album: ea.album.name});
             });
+            console.log(results);
             //Render the homepage and return results to the view
-            res.render('index.hbs', {title: 'Spotify', results: results});
+            res.render('listen', {
+                title: 'Spotify', 
+                results: results}); 
+                // frame: '<iframe src='+preview+ 'width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'});
         })
         .catch(function (err) {
             console.log(err);

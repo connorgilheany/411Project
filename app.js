@@ -11,14 +11,13 @@ var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
 var foodRouter = require('./routes/food');
-
+var spotifyRouter = require('./routes/listen')
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.set('view engine', 'hbs');
 
 
 
@@ -32,7 +31,7 @@ app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/watch', watchRouter);
 app.use('/food', foodRouter);
-
+app.use('/listen', spotifyRouter);
 
 
 
