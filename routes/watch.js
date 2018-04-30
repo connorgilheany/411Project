@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
         {
             title: "COUCH SURF",
             videoList: videos,
-            videoURL: "https://www.youtube.com/embed/"+videoID
+            videoURL: "https://www.youtube.com/embed/"+videoID,
+            currentUser: 'true'
         });
     });
 });

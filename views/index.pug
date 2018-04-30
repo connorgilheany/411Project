@@ -1,14 +1,8 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+extends layout
+block content
       if showLogin
         .logo
           b Couch Surf
-
         #login-box
           .left
             h1 Sign up
@@ -16,7 +10,7 @@ html
               input(type='text', name='email', placeholder='E-mail')
               input(type='password', name='password', placeholder='Password')
               input(type='password', name='password2', placeholder='Retype password')
-              input(type='submit', name='signup_submit', value='Sign me up')
+              input(type='submit', name='signup_submit', value='Register')
           .right
             h1 Already have an account?
             form(method='POST' action='/signin')
