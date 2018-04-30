@@ -43,6 +43,7 @@ router.post('/signup', function(req, res, next) {
             booksURL: '/books',
             watchURL: '/watch',
             cookURL: '/food',
+            listenURL: '/listen',
             user: user.email,
             currentUser: 'true'});
     }).catch(function(error) {
@@ -70,6 +71,7 @@ router.post('/signin', function(req, res){
             booksURL: '/books',
             watchURL: '/watch',
             cookURL: '/food',
+            listenURL: '/listen',
             signoutURL: '/signout',
             currentUser: 'true'});
     }).catch(function(error) {
