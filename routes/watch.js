@@ -14,6 +14,10 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.post('/', (req, res, next) => {
+    console.log("post received");
+})
+
 let getTrendingVideos = () => {
     return network.call("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=25&key=" + config.youtubeAPIKey, parser, "videos", "trending")
 }
