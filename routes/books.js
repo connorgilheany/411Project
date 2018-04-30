@@ -28,8 +28,9 @@ let parser = (resultJSON) => {
 
 router.post('/', function(req, res, next) {
     var input = req.body.query;
+    console.log(input);
     searchBooks(input).then((books) => {
-    res.render('books',
+    res.render('books.pug',
       {
         results: books,
         resultsLength: 'Here are the top ' + books.length + ' results'
