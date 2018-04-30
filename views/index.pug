@@ -24,10 +24,25 @@ block content
           h1= success
           h3= user
           p I want to...
-          a(href=booksURL) Read a Book
+          a(href=booksURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://openclipart.org/download/275692/1489798288.svg", width="50", height="50")
+                span  Read a Book
           br
-          a(href=watchURL) Watch Something
           br
-          a(href=cookURL) Cook Something
+          a(href=watchURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Wikiversity-Mooc-Icon-Video.svg/2000px-Wikiversity-Mooc-Icon-Video.svg.png", width="50", height="50")
+                span  Watch Something
+          br
+          br
+          a(href=cookURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://cdn3.iconfinder.com/data/icons/food-volume-2/48/97-512.png", width="50", height="50")
+                span  Cook Something
+          br
           br
           a(href=signoutURL) Sign Out
