@@ -19,7 +19,7 @@ router.post('/', (req, res, next) => {
 })
 
 let getTrendingVideos = () => {
-    return network.call("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=25&key=" + config.youtubeAPIKey, parser, "videos", "trending")
+    return network.callNoCache("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=25&key=" + config.youtubeAPIKey, parser)
 }
 
 let parser = (resultJSON) => {

@@ -1,5 +1,16 @@
+.VideoCell {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #000000;
+}
+
 .InsideContent {
     display: inline-block;
+}
+
+#thumbnail {
+  float: left;
+  padding-bottom: 0px;
 }
 
 #title {
@@ -14,7 +25,7 @@
   font-family: Arial;
   color: #000000;
   font-size: 20px;
-  background: #dceefa;
+  /*background: #dceefa;*/
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
