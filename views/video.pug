@@ -1,6 +1,8 @@
 link(rel="stylesheet", href="/stylesheets/video.css", type="text/css")
 
-.inline-block
-    div(class="InsideContent")
-        img(src=item.snippet.thumbnails.default.url)
-        p #{item.snippet.title}
+
+div(class="InsideContent")
+    img(src=item.snippet.thumbnails.default.url)
+div(class="InsideContent")
+    p #{item.snippet.title}
+br
