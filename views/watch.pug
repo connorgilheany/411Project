@@ -1,6 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Watch this vine on repeat while we work on this!
-  iframe(width='560', height='315', src="https://www.youtube.com/embed/NsLKQTh-Bqo", frameborder="0", allowfullscreen='allowfullscreen')
+  br
+  br
+  br
+  if videoURL
+    div(id="EmbeddedYoutubeVideo")
+      iframe(width='1067', height='600', src=videoURL, frameborder="0", allowfullscreen='allowfullscreen')
+  div(id="VideoList")
+    for item in videoList
+        include video.pug
+  br
+  br
+  br

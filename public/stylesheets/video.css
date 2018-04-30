@@ -1,0 +1,38 @@
+.VideoCell {
+  background: #ffffff;
+  border-style: solid;
+  border-color: #bab7b6;
+  border-width: 2px;
+}
+
+.InsideContent {
+    display: inline-block;
+}
+
+#thumbnail {
+  float: left;
+  padding-bottom: 0px;
+}
+
+#title {
+    padding-top: 0px;
+    padding-bottom: 125px;
+}
+
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  /*background: #dceefa;*/
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  /*background: #3cb0fd;*/
+  color: #3cb0fd;
+  text-decoration: none;
+}

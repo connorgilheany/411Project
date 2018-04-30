@@ -1,15 +1,25 @@
 extends layout
 
 block content
-    h1= title
-    p Search for books
-    form(action = "/books", method="POST", name ="search-books")
-        div.input
-            span.label Book Title
-            input(type="text", name="query")
-        div.actions
-            input(type="submit", value="Search")
+  body
+    div.container(style='margin-top:70px')
+      div.row
+        div.col-lg-12
+          h1 Treat Yourself To A Nice Book
+          p Search for books by title or subject
 
-    p #{resultsLength}
-    for item in results
-        li=item
+          #form
+            form(action = "/books", method="POST", name ="search-books")
+                  div.input
+                      input(type="text", name="query")
+                  div.actions
+                      input.btn.btn-info(type='submit', value='Search')
+
+          <br>
+          <br>
+          p #{resultsLength}
+
+    div.container
+          ul.list-group
+          for item in results
+            li.list-group-item: a(href=item.previewLink, target="_blank") #{item.title}

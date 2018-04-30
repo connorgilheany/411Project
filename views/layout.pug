@@ -1,7 +1,25 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href="http://fonts.googleapis.com/css?family=Alegreya Sans" )
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', integrity='sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4', crossorigin='anonymous')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+	body
+		if currentUser
+			nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style="background-color: #57a5c1;")
+				a.navbar-brand(href='/') Couch Surf
+				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+					span.navbar-toggler-icon
+				#navbarNavAltMarkup.collapse.navbar-collapse
+					.navbar-nav
+						a.nav-item.nav-link.active(href='/')
+						a.nav-item.nav-link.active(href='/books') Search Books
+						a.nav-item.nav-link(href='/watch') Watch Something
+						a.nav-item.nav-link(href='/food') Cook Something
+						a.nav-item.nav-link(href='/signout') Sign Out
+		block content

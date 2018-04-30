@@ -1,19 +1,36 @@
 extends layout
-
 block content
-  h1= title
-  h1= success
-  h1= user
-
-  p I want to...
-  a(href=booksURL) Read a Book
-  br
-  a(href=watchURL) Watch Something
-  br
-  a(href=listenURL) Listen With Spotify
-  br
-  a(href=signupURL) Sign Up!
-  br
-  a(href=signinURL) Sign In!
-  br 
-  a(href=signoutURL) Sign Out!
+      if showLogin
+        .logo
+          b Couch Surf
+        #login-box
+          .left
+            h1 Sign up
+            form(method='POST' action='/signup')
+              input(type='text', name='email', placeholder='E-mail')
+              input(type='password', name='password', placeholder='Password')
+              input(type='password', name='password2', placeholder='Retype password')
+              input(type='submit', name='signup_submit', value='Register')
+          .right
+            h1 Already have an account?
+            form(method='POST' action='/signin')
+              input(type='text', name='email', placeholder='E-mail')
+              input(type='password', name='password', placeholder='Password')
+              input(type='submit', name='signup_submit', value='Sign in')
+            .g-signin2(data-onsuccess='onSignIn')
+          .or OR
+      if currentUser
+        #main-box
+          h1= success
+          h3= user
+          p I want to...
+          a(href=booksURL) Read a Book
+          br
+          a(href=watchURL) Watch Something
+          br
+          a(href=listenURL) Listen With Spotify
+          br
+          a(href=cookURL) Cook Something
+          br
+          a(href=signoutURL) Sign Out
+          

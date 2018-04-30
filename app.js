@@ -8,14 +8,9 @@ var hbs = require('hbs')
 
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
-var signupRouter = require('./routes/signup');
-var signinRouter = require('./routes/signin');
-var listenRouter = require('./routes/listen');
-//var index = require('.routes/index2')
-//var users = require('.routes/users2')
+var foodRouter = require('./routes/food');
 
 
 var app = express();
@@ -34,12 +29,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/watch', watchRouter);
-app.use('/listen', listenRouter);
-app.use('/signup', signupRouter);
-app.use('/signin', signinRouter);
+app.use('/food', foodRouter);
+
+
 
 
 

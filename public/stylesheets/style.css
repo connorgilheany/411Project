@@ -1,8 +1,225 @@
+@import url(//fonts.googleapis.com/css?family=Space+Mono);
+html,body{
+  height:100%;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin:0;
+  text-align: center;
+  color: #FFF;
+}
+
+.signin {
+    position:absolute;
+    bottom:5%;
+    right:25%;
+    left:25%;
+    margin: auto;
+}
+
+.logo {
+  text-align: center;
+  width: 65%;
+  height: 250px;
+  margin: auto;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 60%;
+}
+
+.logo b{
+  font: 100 15vh "Space Mono";
+  color: #FFF;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #5DBCD2, 0 0 0.5em #5DBCD2, 0 0 0.1em #5DBCD2, 0 10px 3px #000;
+}
+
+
+#main-box {
+  color: #000;
+  width: 450px;
+  height: 500px;
+  background: #FFF;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  position:absolute;  
+  top:10%;
+  right:25%;
+  left:25%;
+  margin: auto;
+  text-align: center;
+}
+
+
+
+#form, #resultList{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+
+
+#login-box {
+  color: #000;
+  width: 450px;
+  height: 300px;
+  background: #FFF;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  position:absolute;
+  bottom:5%;
+  right:25%;
+  left:25%;
+  margin: auto;
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  width: 187.5px;
+  height: 250px;
+}
+
+.left h1, .right h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 2px;
+  width: 165px;
+  height: 16px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 15px;
+  width: 90px;
+  height: 32px;
+  background: #16a085;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 375;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.or {
+  position: absolute;
+  top: 135px;
+  left: 210px;
+  width: 30px;
+  height: 30px;
+  background: #DDD;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 30px;
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 200px;
+  height: 250px;
+  background: url('https://goo.gl/YbktSj');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin: auto;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+div.col-lg-12{
+  color: #FFF;
+}
+
+button.social-signin {
+  margin-top: 15px;
+  width: 165px;
+  height: 32px;
+  border: none;
+  border-radius: 20px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 375;
+  transition: 0.2s ease;
+  cursor: pointer;
+  bottom: 5%;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
 }
 
 a {
-  color: #00B7FF;
+  color: #78c6e2;
+}
+
+.InsideContent {
+  display: inline-block;
+}
+
+#EmbeddedYoutubeVideo {
+    text-align: center;
+}
+
+#VideoList {
+    margin-left: 50px;
+    margin-right: 50px;
 }
