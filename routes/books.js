@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('books', { title: 'Couch Surf', results: [], resultsLength: "" });
+  res.render('books.pug', { title: 'Couch Surf', results: [], resultsLength: "" });
 });
 
 
@@ -23,8 +23,9 @@ let parser = (resultJSON) => {
 
 router.post('/', function(req, res, next) {
     var input = req.body.query;
+    console.log(input);
     searchBooks(input).then((books) => {
-    res.render('books',
+    res.render('books.pug',
       {
         title: 'COUCH SURF',
         results: books,
