@@ -14,7 +14,15 @@ router.get('/', function(req, res, next) {
     if (user) { 
     	// if there is a user logged on, render them home page
       this.userId = user.uid;
-      res.render('index', {currentUser: "true", user: user.email, success: 'Welcome!'});
+      res.render('index', {
+      		currentUser: "true", 
+      		user: user.email, 
+      		success: 'Welcome!', 
+      		booksURL: '/books',
+		    watchURL: '/watch',
+		    cookURL: '/food',
+		    signoutURL: '/signout',
+			currentUser: 'true'});
     }
     else{
     	// else user is not logged on so give them signin page
@@ -41,7 +49,7 @@ router.post('/signup', function(req, res, next) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		console.log(errorCode);
-		res.render('signup', {success: 'Failed to Sign Up!'});
+		res.render('index', {success: 'Failed to Sign Up!'});
 	});
 });
 
@@ -61,6 +69,7 @@ router.post('/signin', function(req, res){
 			booksURL: '/books',
 		    watchURL: '/watch',
 		    cookURL: '/food',
+		    signoutURL: '/signout',
 			currentUser: 'true'});
 	}).catch(function(error) {
 		// Handle Errors here.
@@ -80,12 +89,7 @@ router.get('/signout', function(req, res, next) {
 	firebase.auth().signOut().then(function() {
 	  console.log('Signed Out');
 	  res.render('index', { 
-	    title: 'Couch Surf', 
-	    booksURL: '/books',
-	    watchURL: '/watch',
-	    cookURL: '/food',
-	    signupURL: '/signup', 
-	    signinURL: '/signin'});
+	    showLogin: 'true'});
 
 	  // debug for if user signs out
 	  firebase.auth().onAuthStateChanged( user => {

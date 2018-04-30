@@ -13,7 +13,7 @@
   	appID: "d8eec1aa",
   	apiKey: "b5bcbc16fbcb22b0098a8c5bf28d3b38"
   }
-
+  
   module.exports = {
   	firebaseConfig : firebaseConfig,
   	yummlyConfig : yummlyConfig
