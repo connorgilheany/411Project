@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
     if (user) {
     	// if there is a user logged on, render them home page
       this.userId = user.uid;
-      res.render('food', {currentUser: "true", user: user.email, success: 'Welcome!', title: 'Couch Surf', results: [], resultsLength: 0 });
+      res.render('food', {currentUser: "true", user: user.email, success: 'Welcome!', title: 'Couch Surf', results: [], resultsLength: 10 });
     }
     else{
     	// else user is not logged on so give them signin page
@@ -37,20 +37,18 @@ router.post('/', function(req, res, next){
 	    if (!error && response.statusCode == 200) {
 	      let jsonBody = JSON.parse(body);
 	      console.log(jsonBody);
-	      console.log("Results for " + userQuery);
-
+	      console.log("Top 10 Results for " + userQuery);
 
 				jsonBody.matches.forEach((item) => {
-					var display = item.sourceDisplayName + ': ' + item.recipeName;
-					var url = 'https://www.yummly.com/recipe/' + item.id;
-					results.push(display);
-					resultsLength += 1;
-
-					console.log(display);
-					console.log(url + '\n');
+					let foodResult = {};
+					foodResult.name = item.sourceDisplayName + ': ' + item.recipeName;
+					foodResult.url = 'https://www.yummly.com/recipe/' + item.id;
+					console.log(foodResult);
+					results.push(foodResult);
 				});
 
 	      res.render('food', {
+					userQuery: userQuery,
 					results: results,
 					resultsLength: resultsLength
 				});
@@ -58,6 +56,18 @@ router.post('/', function(req, res, next){
 	      reject(Error("Error processing request to URL: " + parser));
 	    }
   });
+
+	// let parser = (resultJSON) => {
+	//   let bookTitles = [];
+	//   resultJSON.items.slice(0, 10).forEach(item => {
+	//     let bookResult = {};
+	//     bookResult.title = item.volumeInfo.title;
+	//     bookResult.previewLink = item.volumeInfo.previewLink;
+	//     bookTitles.push(bookResult);
+	//   })
+	//   return bookTitles;
+	// }
+
 
     // Yummly.query('pineapple')
     //     .maxTotalTimeInSeconds(1400)
