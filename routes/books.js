@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('books', { title: 'Couch Surf', results: [], resultsLength: "" });
+  res.render('books', { title: 'Anti Outside Inside App', results: [], resultsLength: "" });
 });
 
 
@@ -31,7 +31,6 @@ router.post('/', function(req, res, next) {
     searchBooks(input).then((books) => {
     res.render('books',
       {
-        title: 'COUCH SURF',
         results: books,
         resultsLength: 'Here are the top ' + books.length + ' results'
       });

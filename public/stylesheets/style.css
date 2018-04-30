@@ -1,8 +1,13 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Alegreya Sans", Helvetica, Arial, sans-serif;
+  background-color: #d7e9ef;
 }
 
 a {
-  color: #00B7FF;
+  color: #78c6e2;
+}
+
+nav a { 
+	font-size: 20px;
 }
