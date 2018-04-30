@@ -14,6 +14,7 @@ block content
   #main-box
     h1= title
     p Search for books
+
     #form
       form(action = "/books", method="POST")
             div.input
@@ -26,6 +27,7 @@ block content
     #resultList
       for item in results
         li=item
+
   body
     nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style="background-color: #57a5c1;")
       a.navbar-brand(href='/') Anti Outside Inside App
@@ -36,7 +38,6 @@ block content
           a.nav-item.nav-link.active(href='/')
           a.nav-item.nav-link.active(href='/books') Search Books
           a.nav-item.nav-link(href='/watch') Watch Something
-
 
     div.container(style='margin-top:70px')
       div.row
