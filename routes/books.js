@@ -13,10 +13,15 @@ let searchBooks = (queryString) => {
   return network.call('https://www.googleapis.com/books/v1/volumes?q=' + queryString, parser, queryString);
 }
 
+
+//Parser handles parsing the result into just # titles
 let parser = (resultJSON) => {
   let bookTitles = [];
   resultJSON.items.slice(0, 10).forEach(item => {
-    bookTitles.push(item.volumeInfo.title);
+    let bookResult = {};
+    bookResult.title = item.volumeInfo.title;
+    bookResult.previewLink = item.volumeInfo.previewLink;
+    bookTitles.push(bookResult);
   })
   return bookTitles;
 }
@@ -28,7 +33,7 @@ router.post('/', function(req, res, next) {
       {
         title: 'COUCH SURF',
         results: books,
-        resultsLength: books.length + ' results found'
+        resultsLength: 'Here are the top ' + books.length + ' results'
       });
   });
 });
