@@ -7,13 +7,18 @@ block content
         div.col-lg-12
           h1 Treat Yourself To A Nice Book
           p Search for books by title or subject
+
           #form
             form(action = "/books", method="POST", name ="search-books")
                   div.input
                       input(type="text", name="query")
                   div.actions
                       input.btn.btn-info(type='submit', value='Search')
+
+          <br>
+          <br>
           p #{resultsLength}
+
     div.container
           ul.list-group
           for item in results
