@@ -38,7 +38,7 @@ let call = (url, parser, queryString) => {
         .then(function(snapshot) {
           snapshot.forEach(function(childSnapshot) {
             var key = childSnapshot.key;
-            if (key == queryString){
+            if (key == queryString.toLowerCase()){
               resolve(childSnapshot.child("result").val());
             }
             else{
@@ -48,7 +48,7 @@ let call = (url, parser, queryString) => {
                 let parsed = parser(jsonBody);
                 //Add it to the cache with the URL as the key
                 resolve(parsed);
-                writeBookData(url, parsed, queryString);
+                writeBookData(url, parsed, queryString.toLowerCase());
               } else {
                 reject(Error("Error processing request to URL: "+parser));
               }

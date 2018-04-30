@@ -10,6 +10,22 @@ html
     link(rel='stylesheet', href="http://fonts.googleapis.com/css?family=Alegreya Sans" )
     link(rel='stylesheet', href='/stylesheets/style.css')
 
+block content
+  #main-box
+    h1= title
+    p Search for books
+    #form
+      form(action = "/books", method="POST")
+            div.input
+                span.label Book Title
+                input(type="text", name="query")
+            div.actions
+                input(type="submit", value="Search")
+
+    p #{resultsLength}
+    #resultList
+      for item in results
+        li=item
   body
     nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style="background-color: #57a5c1;")
       a.navbar-brand(href='/') Anti Outside Inside App
