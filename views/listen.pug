@@ -1,28 +1,22 @@
 extends layout 
 
 block content
-    .jumbotron
-      .container
-        h1 Search with Spotify!
-    form(action='/listen' method='post' role='form' enctype='application/x-www-form-urlencoded')
-      .form-group
-        label(for='param_query')
-          input#param_query.form-control(type='text' name='param_query' placeholder='Search')
-      button.btn.btn-primary(type='submit') Submit
-      if results
-          div.container
-                for each in results
-                    p= each.artist
-                    p= each.song
-                    iframe(src=each.preview, width='300', height='80', frameborder='0', allowtransparency='true', allow='encrypted-media')
-                    p= each.album
-                    p ____________________________
-    br
-    br
-    br
-    br
-    br
-    br
-
+    body
+        div.container(style='margin-top:70px')
+            h1 Search with Spotify!
+            #form
+                form(action = "/listen", method="POST")
+                    div.input
+                        input(type="text", name = "param_query", placeholder="Search")
+                    div.actions
+                        input.btn.btn-info(type='submit', value='Search')
+                    if results
+                        div.container
+                            for each in results
+                                p= each.artist
+                                p= each.song
+                                iframe(src=each.preview, width='300', height='80', frameborder='0', allowtransparency='true', allow='encrypted-media')
+                                p= each.album
+                                p ____________________________
 
 

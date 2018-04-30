@@ -21,7 +21,7 @@ var results = [];
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('listen', {title: 'Spotify', results: results});
+    res.render('listen', {title: 'Spotify', results: results, currentUser: 'true'});
 });
 
 
@@ -49,8 +49,8 @@ router.post('/', function (req, res) {
             //Render the homepage and return results to the view
             res.render('listen', {
                 title: 'Spotify', 
+                currentUser: 'true',
                 results: results}); 
-                // frame: '<iframe src='+preview+ 'width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'});
         })
         .catch(function (err) {
             console.log(err);

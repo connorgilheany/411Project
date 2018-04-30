@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
             booksURL: '/books',
             watchURL: '/watch',
             cookURL: '/food',
+            listenURL: '/listen',
             signoutURL: '/signout',
             currentUser: 'true'});
     }
