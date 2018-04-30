@@ -6,16 +6,25 @@ var router = express.Router();
 /* GET watch page. */
 router.get('/', function(req, res, next) {
     getTrendingVideos().then((videos) => {
+        var videoID = videos[0].id;
         res.render('watch',
         {
             title: "COUCH SURF",
-            videoList: videos
+            videoList: videos,
+            videoURL: "https://www.youtube.com/embed/"+videoID
         });
     });
 });
 
 router.post('/', (req, res, next) => {
-    console.log("post received");
+    var videoID = req.body.videoID
+    getTrendingVideos().then((videos) => {
+        res.render('watch', {
+            title: "COUCH SURF",
+            videoList: videos,
+            videoURL: "https://www.youtube.com/embed/"+videoID
+        });
+    });
 })
 
 let getTrendingVideos = () => {

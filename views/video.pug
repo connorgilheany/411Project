@@ -5,4 +5,4 @@ div(class="VideoCell")
         img(src=item.snippet.thumbnails.default.url)
     div(class="InsideContent", id="title")
         form(action="", method="post")
-            button(class="btn", name=item.snippet.title, value=item.id) #{item.snippet.title}
+            button(class="btn", name="videoID", value=item.id) #{item.snippet.title}
