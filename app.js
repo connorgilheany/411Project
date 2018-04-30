@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
+var foodRouter = require('./routes/food');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/watch', watchRouter);
+app.use('/food', foodRouter);
 
 
 

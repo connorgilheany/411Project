@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  #main-box
+    h1= title
+    p Search for food!
+    #form
+      form(action = "/food", method="POST")
+        div.input
+          span.label Food Taste
+          input(type="text", name="query")
+        div.actions
+          input(type="submit", value="Search")   

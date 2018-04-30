@@ -5,51 +5,8 @@ var config = require('../config');
 
 var defaultApp = firebase.initializeApp(config.firebaseConfig);
 
-var firebase = require('firebase');
 var user = firebase.auth().currentUser;
-var provider = new firebase.auth.GoogleAuthProvider();
 
-function isUserEqual(googleUser, firebaseUser) {
-  if (firebaseUser) {
-    var providerData = firebaseUser.providerData;
-    for (var i = 0; i < providerData.length; i++) {
-      if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
-          providerData[i].uid === googleUser.getBasicProfile().getId()) {
-        // We don't need to reauth the Firebase connection.
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-function onSignIn(googleUser) {
-  console.log('SIGNED IN');
-  console.log('Google Auth Response', googleUser);
-  // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-  var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
-    unsubscribe();
-    // Check if we are already signed-in Firebase with the correct user.
-    if (!isUserEqual(googleUser, firebaseUser)) {
-      // Build Firebase credential with the Google ID token.
-      var credential = firebase.auth.GoogleAuthProvider.credential(
-          googleUser.getAuthResponse().id_token);
-      // Sign in with credential from the Google user.
-      firebase.auth().signInWithCredential(credential).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
-    } else {
-      console.log('User already signed-in Firebase.');
-    }
-  });
-}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -76,6 +33,7 @@ router.post('/signup', function(req, res, next) {
 			success: 'Signed up successfully!', 
 			booksURL: '/books',
 		    watchURL: '/watch',
+		    cookURL: '/food',
 			user: user.email,
 			currentUser: 'true'});
 	}).catch(function(error) {
@@ -102,6 +60,7 @@ router.post('/signin', function(req, res){
 			user: user.email,
 			booksURL: '/books',
 		    watchURL: '/watch',
+		    cookURL: '/food',
 			currentUser: 'true'});
 	}).catch(function(error) {
 		// Handle Errors here.
@@ -124,6 +83,7 @@ router.get('/signout', function(req, res, next) {
 	    title: 'Couch Surf', 
 	    booksURL: '/books',
 	    watchURL: '/watch',
+	    cookURL: '/food',
 	    signupURL: '/signup', 
 	    signinURL: '/signin'});
 
