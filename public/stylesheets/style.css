@@ -13,8 +13,8 @@ body {
 }
 
 .signin {
-	position:absolute;
-	bottom:5%;
+    position:absolute;
+    bottom:5%;
     right:25%;
     left:25%;
     margin: auto;
@@ -54,20 +54,7 @@ body {
   text-align: center;
 }
 
-div form {
-  display: block;
-  box-sizing: border-box;
-  padding: 2px;
-  width: 165px;
-  height: 16px;
-  text-align: center;
-  border: none;
-  border-bottom: 1px solid #AAA;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  transition: 0.2s ease;
-}
+
 
 #form, #resultList{
     display: inline-block;
@@ -224,4 +211,17 @@ button.social-signin:active {
 
 a {
   color: #78c6e2;
+}
+
+.InsideContent {
+  display: inline-block;
+}
+
+.EmbeddedYoutubeVideo {
+    text-align: center;
+}
+
+.VideoList {
+    margin-left: 50px;
+    margin-right: 50px;
 }

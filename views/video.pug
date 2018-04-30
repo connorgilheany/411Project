@@ -1,0 +1,8 @@
+link(rel="stylesheet", href="/stylesheets/video.css", type="text/css")
+
+div(class="VideoCell")
+    div(class="InsideContent", id="thumbnail")
+        img(src=item.snippet.thumbnails.default.url)
+    div(class="InsideContent", id="title")
+        form(action="", method="post")
+            button(class="btn", name="videoID", value=item.id) #{item.snippet.title}

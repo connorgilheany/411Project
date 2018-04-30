@@ -10,11 +10,15 @@
   };
 
   var yummlyConfig = {
-  	appID: "d8eec1aa",
-  	apiKey: "b5bcbc16fbcb22b0098a8c5bf28d3b38"
+    appID: "d8eec1aa",
+    apiKey: "b5bcbc16fbcb22b0098a8c5bf28d3b38"
   }
-  
+
+  var youtubeAPIKey = "AIzaSyBxWqUq49kwKrEw8IZFOcF6z11Pq-TSFak";
+
+
   module.exports = {
-  	firebaseConfig : firebaseConfig,
-  	yummlyConfig : yummlyConfig
+    firebaseConfig : firebaseConfig,
+    yummlyConfig : yummlyConfig,
+    youtubeAPIKey : youtubeAPIKey
   }
