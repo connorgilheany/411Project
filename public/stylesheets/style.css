@@ -221,4 +221,11 @@ button.social-signin:active {
 
 button.social-signin.google {
   background: #DD4B39;
+  padding: 50px;
+  font: 16px "Alegreya Sans", Helvetica, Arial, sans-serif;
+  background-color: #d7e9ef;
+}
+
+a {
+  color: #78c6e2;
 }
