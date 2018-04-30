@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
         {
             title: "COUCH SURF",
             videoList: videos,
-            videoURL: "https://www.youtube.com/embed/"+videoID,
+            //videoURL: "https://www.youtube.com/embed/"+videoID,
             currentUser: 'true'
         });
     });
@@ -23,13 +23,14 @@ router.post('/', (req, res, next) => {
         res.render('watch', {
             title: "COUCH SURF",
             videoList: videos,
-            videoURL: "https://www.youtube.com/embed/"+videoID
+            videoURL: "https://www.youtube.com/embed/"+videoID,
+            currentUser: 'true'
         });
     });
 })
 
 let getTrendingVideos = () => {
-    return network.callNoCache("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=25&key=" + config.youtubeAPIKey, parser)
+    return network.callNoCache("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=50&key=" + config.youtubeAPIKey, parser)
 }
 
 let parser = (resultJSON) => {

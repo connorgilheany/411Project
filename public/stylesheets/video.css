@@ -1,7 +1,8 @@
 .VideoCell {
   background: #ffffff;
   border-style: solid;
-  border-color: #000000;
+  border-color: #bab7b6;
+  border-width: 2px;
 }
 
 .InsideContent {
@@ -14,8 +15,8 @@
 }
 
 #title {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 0px;
+    padding-bottom: 125px;
 }
 
 .btn {
@@ -31,6 +32,7 @@
 }
 
 .btn:hover {
-  background: #3cb0fd;
+  /*background: #3cb0fd;*/
+  color: #3cb0fd;
   text-decoration: none;
 }
