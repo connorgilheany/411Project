@@ -24,13 +24,32 @@ block content
           h1= success
           h3= user
           p I want to...
-          a(href=booksURL) Read a Book
+          a(href=booksURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://openclipart.org/download/275692/1489798288.svg", width="50", height="50")
+                span  Read a Book
           br
-          a(href=watchURL) Watch Something
           br
-          a(href=listenURL) Listen With Spotify
+          a(href=watchURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Wikiversity-Mooc-Icon-Video.svg/2000px-Wikiversity-Mooc-Icon-Video.svg.png", width="50", height="50")
+                span  Watch Something
           br
-          a(href=cookURL) Cook Something
+          br
+          a(href=cookURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://cdn3.iconfinder.com/data/icons/food-volume-2/48/97-512.png", width="50", height="50")
+                span  Cook Something
+          br
+          br
+          a(href=listenURL)
+            button(class="mainLinkButton")
+              div(class="buttonContainer")
+                img(src="https://vignette.wikia.nocookie.net/narutofanon/images/2/2c/Music_notes_clipart_2.svg/revision/latest?cb=20130304202716", width="50", height="50")
+                span  Listen With Spotify
+          br
           br
           a(href=signoutURL) Sign Out
-          
