@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next){
 	return new Promise((resolve, reject) => {
 		var userQuery = req.body.query;
-		var url = "http://api.yummly.com/v1/api/recipes?_app_id=" + config.yummlyConfig.appID + "&_app_key=" + config.yummlyConfig.apiKey + "q=flavor.sweet.min=0.8";
+		var url = "http://api.yummly.com/v1/api/recipes?_app_id=" + config.yummlyConfig.appID + "&_app_key=" + config.yummlyConfig.apiKey + "&q=" + userQuery;
 		var results = [];
 		var resultsLength = 0;
 
