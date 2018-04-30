@@ -16,21 +16,9 @@
 
 
 
-  var googleConfig = {
-  	"web":{
-		"client_id":"1086732750861-oqops55mn1sbtintk127igov3ootqe2i.apps.googleusercontent.com",
-		"project_id":"cs411-2b882",
-		"auth_uri":"https://accounts.google.com/o/oauth2/auth",
-		"token_uri":"https://accounts.google.com/o/oauth2/token",
-		"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
-		"client_secret":"9LiotcEKQd9o1mvo55kUZUj6",
-		"javascript_origins":["http://localhost:3000/"]
-		}
-	}
 
 
   module.exports = {
   	firebaseConfig : firebaseConfig,
-  	googleConfig : googleConfig,
   	yummlyConfig : yummlyConfig
   }

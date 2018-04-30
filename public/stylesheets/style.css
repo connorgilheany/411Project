@@ -1,8 +1,8 @@
 @import url(//fonts.googleapis.com/css?family=Space+Mono);
 html,body{
   height:100%;
-  overflow: hidden;
-
+  overflow-y: scroll; 
+  overflow-x: hidden;
 }
 body {
   background: #112 url(inside.jpeg)  center no-repeat;

@@ -11,21 +11,6 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
 block content
-  #main-box
-    h1= title
-    p Search for books
-    #form
-      form(action = "/books", method="POST")
-            div.input
-                span.label Book Title
-                input(type="text", name="query")
-            div.actions
-                input(type="submit", value="Search")
-
-    p #{resultsLength}
-    #resultList
-      for item in results
-        li=item
   body
     nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style="background-color: #57a5c1;")
       a.navbar-brand(href='/') Anti Outside Inside App
@@ -43,12 +28,12 @@ block content
         div.col-lg-12
           h1 Treat Yourself To A Nice Book
           p Search for books by title or subject
-          form(action = "/books", method="POST", name ="search-books")
-                div.input
-                    input(type="text", name="query")
-                br
-                div.actions
-                    input.btn.btn-info(type='submit', value='Search')
+          #form
+            form(action = "/books", method="POST", name ="search-books")
+                  div.input
+                      input(type="text", name="query")
+                  div.actions
+                      input.btn.btn-info(type='submit', value='Search')
           <br>
           p #{resultsLength}
     div.container

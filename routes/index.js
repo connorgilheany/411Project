@@ -41,7 +41,7 @@ router.post('/signup', function(req, res, next) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		console.log(errorCode);
-		res.render('signup', {success: 'Failed to Sign Up!'});
+		res.render('index', {success: 'Failed to Sign Up!'});
 	});
 });
 
