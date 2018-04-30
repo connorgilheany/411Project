@@ -16,9 +16,14 @@
 
   var youtubeAPIKey = "AIzaSyBxWqUq49kwKrEw8IZFOcF6z11Pq-TSFak";
 
+  var spotifyKeys = {
+    id: 'cace0dc8230a40bfb8c9369c0eb12632',
+    secret: '0d76cec35ae34bb19ac2d259155613cd'
+  };
 
   module.exports = {
     firebaseConfig : firebaseConfig,
     yummlyConfig : yummlyConfig,
-    youtubeAPIKey : youtubeAPIKey
+    youtubeAPIKey : youtubeAPIKey,
+    spotifyKeys: spotifyKeys
   }
