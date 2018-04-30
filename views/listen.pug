@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    h1= 'Listen to Spotify'
+    form(action='/', method='post', role='form', enctype='application/x-www-form-urlencoded')
+        legend Spotify Query
+        .form-group
+            label(for='param_type') Type
+            input#param_type.form-control(type='text', name='param_type', placeholder='ex: track')
+
+        .form-group
+            label(for='param_query') Title
+            input#param_query.form-control(type='text', name='param_query', placeholder='ex: Beat It')
+
+        button.btn.btn-primary(type='submit') Submit
+
+
+
+
+

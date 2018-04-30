@@ -8,7 +8,7 @@ var firebaseConfig = require('../config');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('signup');
+  res.render('signup.pug');
 });
 
 
@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
 	firebase.auth().createUserWithEmailAndPassword(newEmail, newPass).then(function(user) {
 		firebase.database().ref('cache/').child(user.uid).set({
 			"_email" : newEmail});
-		res.render('index', {
+		res.render('index.pug', {
 			success: 'Signed up successfully!', booksURL: '/books',
 		    watchURL: '/watch',
 		    signupURL: '/signup', 
@@ -29,7 +29,7 @@ router.post('/', function(req, res, next) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		console.log(errorCode);
-		res.render('signup', {success: 'Failed to Sign Up!'});
+		res.render('signup.pug', {success: 'Failed to Sign Up!'});
 	});
 
 	

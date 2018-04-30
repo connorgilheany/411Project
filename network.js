@@ -23,6 +23,18 @@ function writeBookData(url, parsedResult, queryString) {
   });
 }
 
+function writeSpotifyData(url, parsedResult, queryString) {
+    firebase.auth().onAuthStateChanged( user => {
+        if (user) {
+            this.userId = user.uid;
+            firebase.database().ref('cache/').child(user.uid).child(queryString).update({ //insert specific uid
+                "url": url,
+                "result": parsedResult
+            });
+        }
+    });
+}
+
 //Returns a promise with the result of the cache lookup / network call
 let call = (url, parser, queryString) => {
   return new Promise((resolve, reject) => {

@@ -1,8 +1,11 @@
 var createError = require('http-errors');
 var express = require('express');
+var favicon = require('serve-favicon');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var hbs = require('hbs')
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -10,12 +13,19 @@ var booksRouter = require('./routes/books');
 var watchRouter = require('./routes/watch');
 var signupRouter = require('./routes/signup');
 var signinRouter = require('./routes/signin');
+var listenRouter = require('./routes/listen');
+//var index = require('.routes/index2')
+//var users = require('.routes/users2')
+
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.set('view engine', 'hbs');
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,6 +37,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/watch', watchRouter);
+app.use('/listen', listenRouter);
 app.use('/signup', signupRouter);
 app.use('/signin', signinRouter);
 
@@ -48,5 +59,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+console.log('Listening on 3000');
 
 module.exports = app;

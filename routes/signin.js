@@ -8,7 +8,7 @@ var firebaseConfig = require('../config');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('signin');
+  res.render('signin.pug');
 });
 
 
@@ -19,18 +19,19 @@ router.post('/', function(req, res){
 	firebase.auth().signInWithEmailAndPassword(userEmail, userPass).then(function(user) {
 		// success log in
 		console.log(user.uid);
-		res.render('index', {
+		res.render('index.pug', {
 			success: 'Signed in successfully!', 
 			user: user.email,
 			booksURL: '/books',
 		    watchURL: '/watch',
+			listenURL: 'listen',
 		    signupURL: '/signup', 
 		    signinURL: '/signin'});
 	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
 		var errorMessage = error.message;
-		res.render('signin', {success: 'Failed to Sign In!'});
+		res.render('signin.pug', {success: 'Failed to Sign In!'});
 
 		// ...
 	});
