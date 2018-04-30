@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var firebase = require('firebase');
-const firebaseConfig = require('../config');
+var config = require('../config');
 
-var defaultApp = firebase.initializeApp(firebaseConfig);
+var defaultApp = firebase.initializeApp(config.firebaseConfig);
 
 var firebase = require('firebase');
 var user = firebase.auth().currentUser;
