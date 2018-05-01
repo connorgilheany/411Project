@@ -33,7 +33,8 @@ router.post('/', function(req, res, next) {
     res.render('books.pug',
       {
         results: books,
-        resultsLength: 'Here are the top ' + books.length + ' results'
+        resultsLength: 'Here are the top ' + books.length + ' results',
+        currentUser: 'true'
       });
   });
 });
